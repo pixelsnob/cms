@@ -10,17 +10,17 @@ var
   session         = require('express-session'),
   redis_store     = require('connect-redis')(session),
   body_parser     = require('body-parser'),
-  fs              = require('fs');
+  fs              = require('fs'),
+  env             = process.env.NODE_ENV || 'development';
 
 module.exports = function(app, config) {
-  
-  var env = process.env.NODE_ENV || 'development';
+
   if (env == 'development') {
     app.use(express.static('public'));
   }
   
   /* Globals, so that mounted routers have access to these resources */
-  global.db       = require('./db');
+  global.db       = require('./db')(config.db_name);
   global.passport = require('./auth');
 
   require('./view_helpers')(app);
@@ -67,5 +67,4 @@ module.exports = function(app, config) {
   ));
 
 };
-
 
