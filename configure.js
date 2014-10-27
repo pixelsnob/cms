@@ -58,11 +58,10 @@ module.exports = function(app, config) {
   });
 
   var jade_paths = [ 'cms/*.jade' ];
-  jade_paths.push(config.jade_paths);
 
   app.use(jade_browser(
     '/jade.js',
-    jade_paths,
+    jade_paths.concat(config.jade_paths),
     { root: app.get('views'), minify: (env == 'production') }
   ));
 
