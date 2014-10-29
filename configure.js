@@ -1,4 +1,7 @@
 
+/* Configures an express app, adding db, auth, and other resources used
+   by the CMS */
+
 'use strict';
 
 var
@@ -19,11 +22,11 @@ module.exports = function(app, config) {
     app.use(express.static('public'));
   }
   
-  require('./db')(config.db_name);
-  require('./auth');
+  require('./lib/db')(config.db_name);
+  require('./lib/auth');
 
-  require('./view_helpers')(app);
-  require('./marked')(app);
+  require('./lib/view_helpers')(app);
+  require('./lib/marked')(app);
 
   app.set('view engine', 'jade');
   app.set('views', config.view_dir);
@@ -63,6 +66,8 @@ module.exports = function(app, config) {
     jade_paths.concat(config.jade_paths),
     { root: app.get('views'), minify: (env == 'production') }
   ));
+
+  app.use(require('./lib/router'));
 
 };
 
