@@ -1,7 +1,8 @@
 
 'use strict';
 
-var bcrypt     = require('bcrypt');
+var db         = require('mongoose'),
+    bcrypt     = require('bcrypt');
 
 var UserSchema = db.Schema({
   username: { type: String, unique: true },

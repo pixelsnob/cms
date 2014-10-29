@@ -1,7 +1,8 @@
 
 'use strict';
 
-var Schema = db.Schema;
+var db     = require('mongoose'),
+    Schema = db.Schema;
 
 var no_newlines = function(val) {
   return !/\r|\n/g.test(val);

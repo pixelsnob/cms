@@ -19,9 +19,8 @@ module.exports = function(app, config) {
     app.use(express.static('public'));
   }
   
-  /* Globals, so that mounted routers have access to these resources */
-  global.db       = require('./db')(config.db_name);
-  global.passport = require('./auth');
+  require('./db')(config.db_name);
+  require('./auth');
 
   require('./view_helpers')(app);
   require('./marked')(app);

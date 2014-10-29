@@ -1,7 +1,8 @@
 
 'use strict';
 
-var Schema = db.Schema;
+var db     = require('mongoose'),
+    Schema = db.Schema;
 
 var ImageSchema = Schema({
   path:      { type: String, unique: true, required: true },
