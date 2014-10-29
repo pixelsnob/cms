@@ -5,7 +5,6 @@
 'use strict';
 
 var
-  views_dir       = __dirname + '/views',
   express         = require('express'),
   jade_browser    = require('jade-browser'),
   passport        = require('passport'),
