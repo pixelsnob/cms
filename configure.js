@@ -67,7 +67,5 @@ module.exports = function(app, config) {
     { root: app.get('views'), minify: (env == 'production') }
   ));
 
-  app.use(require('./lib/router'));
-
 };
 
