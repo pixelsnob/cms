@@ -4,9 +4,8 @@
  * 
  */
 define([
-  './base',
-  'template'
-], function(ModalView, template) {
+  './base'
+], function(ModalView) {
   return ModalView.extend({
     
     initialize: function(opts) {

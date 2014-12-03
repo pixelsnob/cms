@@ -11,7 +11,8 @@ define([
     
     events: {
       'click .save':    'save',
-      'click .cancel':  'cancel'
+      'click .cancel':  'cancel',
+      'click .remove':  'remove'
     },
     
     initialize: function() {
@@ -29,6 +30,9 @@ define([
       if (opts.hide_cancel_button) {
         this.$el.find('button.cancel').hide();
       }
+      if (opts.hide_remove_button) {
+        //this.$el.find('button.remove').hide();
+      }
     },
     
     save: function() {
@@ -44,6 +48,10 @@ define([
       this.$el.modal('hide');
       this.trigger('cancel');
       return false;
+    },
+
+    remove: function(ev) {
+      this.trigger('remove');
     }
   });
 });
