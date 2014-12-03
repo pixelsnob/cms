@@ -31,7 +31,7 @@ define([
         this.$el.find('button.cancel').hide();
       }
       if (opts.show_remove_button) {
-        this.$el.find('button.remove').show();
+        this.$el.find('button.remove').removeClass('hide');
       }
     },
     
