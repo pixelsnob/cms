@@ -28,7 +28,7 @@ define([
       }
       this.$el.modal({ backdrop: 'static', keyboard: true });
       if (opts.hide_cancel_button) {
-        this.$el.find('button.cancel').hide();
+        this.$el.find('button.btn.cancel').hide();
       }
       if (opts.show_remove_button) {
         this.$el.find('button.remove').removeClass('hide');
