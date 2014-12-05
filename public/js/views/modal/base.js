@@ -33,6 +33,9 @@ define([
       if (opts.show_remove_button) {
         this.$el.find('button.remove').removeClass('hide');
       }
+      if (opts.title) {
+        this.$el.find('h4').text(opts.title);
+      }
     },
     
     save: function() {
