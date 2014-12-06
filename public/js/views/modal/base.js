@@ -17,16 +17,8 @@ define([
     
     initialize: function() {
       this.setElement(template.render('cms/modal'));
-      var obj = this;
-      this.$el.on('hidden.bs.modal', function() {
-        obj.trigger('open');
-        // For stacked modals: prevent removal of .modal-open body class
-        // when other modals are still open
-        if ($('.modal.in').length) {
-          $('body').addClass('modal-open');
-        }
-      });
-      this.$el.on('hidden.bs.modal', _.bind(this.trigger, this, 'close'));
+      this.$el.on('shown.bs.modal', _.bind(this.shown, this));
+      this.$el.on('hidden.bs.modal', _.bind(this.hidden, this));
     },
     
     modal: function(opts) {
@@ -44,6 +36,21 @@ define([
       if (opts.title) {
         this.$el.find('h4').text(opts.title);
       }
+    },
+    
+    shown: function() {
+      var overlay = this.$el.find('.modal-backdrop');
+      overlay.height(parseInt(overlay.height()) + 50);
+      this.trigger('open');
+    },
+
+    hidden: function() {
+      // For stacked modals: prevent removal of .modal-open body class
+      // when other modals are still open
+      if ($('.modal.in').length) {
+        $('body').addClass('modal-open');
+      }
+      this.trigger('close');
     },
     
     save: function() {
