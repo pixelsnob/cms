@@ -1,6 +1,6 @@
 {
   "name": "cms",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "private": true,
   "peerDependencies": {
     "express": "^4.0.0",

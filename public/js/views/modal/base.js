@@ -17,7 +17,15 @@ define([
     
     initialize: function() {
       this.setElement(template.render('cms/modal'));
-      this.$el.on('shown.bs.modal', _.bind(this.trigger, this, 'open'));
+      var obj = this;
+      this.$el.on('hidden.bs.modal', function() {
+        obj.trigger('open');
+        // For stacked modals: prevent removal of .modal-open body class
+        // when other modals are still open
+        if ($('.modal.in').length) {
+          $('body').addClass('modal-open');
+        }
+      });
       this.$el.on('hidden.bs.modal', _.bind(this.trigger, this, 'close'));
     },
     
