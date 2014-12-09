@@ -12,7 +12,7 @@ define([
     events: {
       'click .save':    'save',
       'click .cancel':  'cancel',
-      'click .remove':  'remove'
+      'click .remove':  function() { this.trigger('remove'); }
     },
     
     initialize: function() {
@@ -26,7 +26,7 @@ define([
       if (opts.save_label) {
         this.$el.find('button.save').text(opts.save_label);
       }
-      this.$el.modal({ backdrop: 'static', keyboard: true });
+      this.$el.modal({ backdrop: 'static', keyboard: false });
       if (opts.hide_cancel_button) {
         this.$el.find('button.btn.cancel').hide();
       }
@@ -66,10 +66,7 @@ define([
       this.$el.modal('hide');
       this.trigger('cancel');
       return false;
-    },
-
-    remove: function(ev) {
-      this.trigger('remove');
     }
+
   });
 });
