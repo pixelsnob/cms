@@ -383,7 +383,7 @@ module.exports = {
   uploadFile: function(req, res, next) {
     console.log(__dirname);
     var form       = new formidable.IncomingForm(),
-        tmp_dir    = './tmp/files/';
+        tmp_dir    = '../../tmp/files/';
     form.uploadDir = tmp_dir;
     if (!fs.existsSync(tmp_dir)) {
       return next(new Error(tmp_dir + ' does not exist'));
