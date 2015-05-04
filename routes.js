@@ -235,6 +235,10 @@ module.exports = {
   },
 
   updateSound: function(req, res, next) {
+    var path = require("path");
+    console.log(". = %s", path.resolve("."));
+    console.log("__dirname = %s", path.resolve(__dirname));
+
     Sound.findOne({ path: req.body.path, _id: { $ne: req.params.id }},
     function(err, existing) {
       if (err) {
