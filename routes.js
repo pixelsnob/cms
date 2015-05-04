@@ -160,7 +160,7 @@ module.exports = function(app) {
           if (err) {
             return next(err);
           }
-          fs.rename(req.file.path, dest_dir + file_name, function(err) {
+          fs.rename(req.file.path, images_dir + file_name, function(err) {
             if (err) {
               return next(err);
             }
@@ -313,7 +313,7 @@ module.exports = function(app) {
           if (err) {
             return next(err);
           }
-          fs.rename(req.file.path, dest_dir + file_name, function(err) {
+          fs.rename(req.file.path, sounds_dir + file_name, function(err) {
             if (err) {
               return next(err);
             }
