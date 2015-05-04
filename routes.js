@@ -13,8 +13,8 @@ var
 
 module.exports = function(app) {
   
-  var images_path = app.app_dir + '/public/user/images/',
-      sounds_path = app.app_dir + '/public/user/sounds';
+  var images_dir = app.app_dir + '/public/user/images/',
+      sounds_dir = app.app_dir + '/public/user/sounds';
       
   return {
   
