@@ -4,7 +4,7 @@ var express  = require('express'),
 
 module.exports = function(app) {
   
-  var router = require('./routes')(app);
+  var routes = require('./routes')(app);
 
   // Routing
   router.route('/login')
