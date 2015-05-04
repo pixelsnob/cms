@@ -133,7 +133,7 @@ module.exports = {
     if (typeof req.file == 'undefined') {
       return next(new Error('req.file is not defined'));
     }
-    var dest_dir = './public/user/images/';
+    var dest_dir = '../../public/user/images/';
     if (!fs.existsSync(dest_dir)) {
       return next(new Error(dest_dir + ' does not exist'));
     }
@@ -183,8 +183,8 @@ module.exports = {
           return next(new Error('Image not found'));
         }
         var file_name = path.basename(image.path);
-        fs.rename('./public/user/images/' + file_name,
-        './public/user/images/' + path.basename(req.body.path),
+        fs.rename('../../public/user/images/' + file_name,
+        '../../public/user/images/' + path.basename(req.body.path),
         function(err) {
           if (err) {
             return next(err);
@@ -215,7 +215,7 @@ module.exports = {
       if (!image) {
         return res.send({ ok: true });
       }
-      fs.unlink('./public/user/images/' + image.path, function(err) {
+      fs.unlink('../../public/user/images/' + image.path, function(err) {
         if (err) {
           // Don't notify user of this error, just log it
           console.error(err);
@@ -255,8 +255,8 @@ module.exports = {
         if (!sound) {
           return next(new Error('Sound not found'));
         }
-        fs.rename('./public/user/sounds/' + sound.path,
-          './public/user/sounds/' + req.body.path,
+        fs.rename('../../public/user/sounds/' + sound.path,
+          '../../public/user/sounds/' + req.body.path,
         function(err) {
           if (err) {
             return next(err);
@@ -281,7 +281,7 @@ module.exports = {
       if (!sound) {
         return res.send({ ok: true });
       }
-      fs.unlink('./public/user/sounds/' + sound.path, function(err) {
+      fs.unlink('../../public/user/sounds/' + sound.path, function(err) {
         if (err) {
           // Don't notify user of this error, just log it
           console.error(err);
@@ -295,7 +295,7 @@ module.exports = {
     if (typeof req.file == 'undefined') {
       return next(new Error('req.file is not defined'));
     }
-    var dest_dir = './public/user/sounds/';
+    var dest_dir = '../../public/user/sounds/';
     if (!fs.existsSync(dest_dir)) {
       return next(new Error(dest_dir + ' does not exist'));
     }
