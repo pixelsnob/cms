@@ -14,7 +14,7 @@ var
 module.exports = function(app) {
   
   var images_dir = app.app_dir + '/public/user/images/',
-      sounds_dir = app.app_dir + '/public/user/sounds';
+      sounds_dir = app.app_dir + '/public/user/sounds/';
       
   return {
   
