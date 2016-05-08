@@ -3,12 +3,12 @@
   "version": "0.0.17",
   "private": true,
   "peerDependencies": {
-    "express": "^4.0.0",
-    "jade": "^1.7.0",
-    "formidable": "~1.0.14",
-    "mongoose": "^3.8.18",
-    "passport": "^0.2.0",
-    "underscore": "^1.7.0"
+    "express": "latest",
+    "jade": "latest",
+    "formidable": "latest",
+    "mongoose": "3.8.40",
+    "passport": "latest",
+    "underscore": "latest"
   },
   "devDependencies": {
   }
