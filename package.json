@@ -1,12 +1,12 @@
 {
   "name": "cms",
-  "version": "0.0.17",
+  "version": "0.0.18",
   "private": true,
   "dependencies": {
     "express": "latest",
     "jade": "latest",
     "formidable": "latest",
-    "mongoose": "3.8.40",
+    "mongoose": "latest",
     "passport": "latest",
     "underscore": "latest"
   },
